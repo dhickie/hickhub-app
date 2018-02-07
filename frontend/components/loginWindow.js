@@ -22,7 +22,7 @@ const LoginWindow = props => {
 
     return (
         <div style={windowStyle}>
-            <Image src='/Coding Projects/HickHub/hickhub-app/frontend/assets/Logo.jpg' fluid centered/>
+            <Image src='/static/logo.jpg' fluid centered/>
             <div style={inputPadding}>
                 <h2>Log in</h2>
             </div>

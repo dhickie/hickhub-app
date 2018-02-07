@@ -58,5 +58,5 @@ typings/
 .env
 
 # Bundled react js
-build/
+frontend/static/app.js
 
