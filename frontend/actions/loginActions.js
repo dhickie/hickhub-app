@@ -46,25 +46,24 @@ export function startLogin(email, password, clientId, scope, redirectUri) {
             body: body
         };
 
+        console.log(body);
+
         fetch(`https://api.hickhub.com/oauth/authorize`, options)
-            .then(response => {
-                console.log(response)
-                    // Figure out whether the call was successful
-                    if (response.status == 401) {
-                        dispatch(loginFailed('This combination of email address and password is not valid.'));
-                    } else if (response.status == 403) {
-                        dispatch(loginFailed('Attempting to log in from an unknown client.'));
-                    } else if (response.status != 200) {
-                        dispatch(loginFailed('An unknown error occured trying to log in. Please try again later.'));
-                    } else {
-                        return response.json();
-                    }
-                },
-                error => console.log('An error occured calling the auth endpoint.', error)
-            )
-            .then(json => {
-                // Dispatch the login success action
-                dispatch(loginSuccessful(json.authorisation_code))
-            });
+        .then(response => {
+            console.log(response)
+                // Figure out whether the call was successful
+                if (response.status == 401) {
+                    dispatch(loginFailed('This combination of email address and password is not valid.'));
+                } else if (response.status == 403) {
+                    dispatch(loginFailed('Attempting to log in from an unknown client.'));
+                } else if (response.status != 200) {
+                    dispatch(loginFailed('An unknown error occured trying to log in. Please try again later.'));
+                } else {
+                    // Handle the successful response
+                    dispatch(loginSuccessful(response.json().authorisation_code));
+                }
+            },
+            error => console.log('An error occured calling the auth endpoint.', error)
+        );
     }
 };

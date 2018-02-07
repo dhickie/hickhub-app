@@ -1,19 +1,25 @@
 import React from 'react';
-import { Form, Button } from 'semantic-ui-react';
+import { Button, Grid } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { LoginState } from '../reducers/loginReducers';
 
 const LoginButton = props => {
     var onClick = () => {
-        props.onClick(props.email, props.password, props.clientId, props.scope, props.redirectUri)
+        props.onClick(props.email, props.password, props.clientId, props.scope, props.redirectUri);
     };
     var isLoading = props.loginState == LoginState.LOGGING_IN ? true : false;
 
+    var padding = {
+        padding: '0 30px'
+    };
+
     return (
-        <Button loading={isLoading} onClick={onClick}>
-            Log in
-        </Button>
-    )
+        <div style={padding}>
+            <Button fluid loading={isLoading} onClick={onClick}>
+                Log in
+            </Button>
+        </div>
+    );
 };
 
 LoginButton.propTypes = {

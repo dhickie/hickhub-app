@@ -18,9 +18,9 @@ const initialState = {
     email: '',
     password: '',
     error: '',
-    clientId: '',
-    scope: '',
-    redirectUri: '',
+    clientId: 'test',
+    scope: 'messaging',
+    redirectUri: 'http://www.test.com',
     authCode: ''
 };
 
@@ -29,7 +29,7 @@ export default function loginWindow(state = initialState, action) {
         case LOGIN_STARTED:
             return Object.assign({}, state, { loginState: LoginState.LOGGING_IN });
         case LOGIN_SUCCESSFUL:
-            return Object.assign({}, state, { loginState: LoginState.LOGIN_SUCCESSFUL, authCode: action.authCode });
+            return Object.assign({}, state, { loginState: LoginState.LOGIN_SUCCESSFUL, authCode: action.authCode, error: '' });
         case LOGIN_FAILED:
             return Object.assign({}, state, { loginState: LoginState.LOGIN_FAILED, error: action.error });
         case EMAIL_INPUT_CHANGED:
