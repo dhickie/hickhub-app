@@ -59,4 +59,4 @@ typings/
 
 # Bundled react js
 frontend/static/app.js
-
+bin/

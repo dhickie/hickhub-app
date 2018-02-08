@@ -1,8 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'frontend/static');
-var APP_DIR = path.resolve(__dirname, 'frontend');
+var BUILD_DIR = path.resolve(__dirname, 'src/frontend/static');
+var APP_DIR = path.resolve(__dirname, 'src/frontend');
 
 var config = {
     entry: APP_DIR + '/index.js',
