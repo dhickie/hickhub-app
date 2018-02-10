@@ -8,9 +8,9 @@ import { LoginState } from './frontend/reducers/loginReducers';
 import { LoginWindow } from './frontend/components/loginWindow';
 
 var app = express();
-const port = 3000;
+const port = 3100;
 
-app.use('/static', express.static('./src/frontend/static'));
+app.use('/static', express.static('./static'));
 app.use('/login', handleLogin);
 
 function handleLogin(req, res) {

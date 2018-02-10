@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "babel-node src/index.js --presets es2015,stage-2",
-    "build": "babel src -d bin --presets es2015,stage-2",
-    "buildfront": ".\\node_modules\\.bin\\webpack -d",
-    "serve": "node bin/index.js"
+    "build": "babel src -d lib --presets es2015,stage-2",
+    "buildfront": ".\\node_modules\\.bin\\webpack",
+    "serve": "node lib/index.js"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "path": "^0.12.7",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "webpack-bundle-analyzer": "^2.10.0"
   }
 }
