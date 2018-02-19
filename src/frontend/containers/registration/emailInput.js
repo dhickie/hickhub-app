@@ -1,15 +1,15 @@
-import { emailInputChanged } from '../actions/loginActions';
+import HickHubInput from '../../components/common/hickHubInput';
+import { RegistrationState } from '../../reducers/registrationReducers';
+import { emailInputChanged } from '../../actions/registrationActions';
 import { connect } from 'react-redux';
-import { LoginState } from '../reducers/loginReducers';
-import HickHubInput from '../components/common/hickHubInput';
 
 const mapStateToProps = state => {
-    var isDisabled = state.loginState == LoginState.LOGGING_IN;
+    var isDisabled = state.registration.state == RegistrationState.CHECKING_EMAIL;
 
     return {
         type: 'input',
         disabled: isDisabled,
-        value: state.email,
+        value: state.registration.email,
         placeholder: 'Email address'
     };
 };

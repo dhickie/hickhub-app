@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Grid } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { LoginState } from '../reducers/loginReducers';
 

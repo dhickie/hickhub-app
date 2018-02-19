@@ -1,9 +1,9 @@
 import React from 'react';
-import { Input, Grid } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import { Input, Grid } from 'semantic-ui-react';
 import { LoginState } from '../reducers/loginReducers';
 
-const LoginInput = props => {
+const HickHubInput = props => {
     var onChange = (event) => {
         props.onChange(event.target.value);
     };
@@ -19,7 +19,7 @@ const LoginInput = props => {
     );
 };
 
-LoginInput.propTypes = {
+HickHubInput.propTypes = {
     type: PropTypes.string,
     disabled: PropTypes.bool,
     value: PropTypes.string,
@@ -27,4 +27,4 @@ LoginInput.propTypes = {
     onChange: PropTypes.func
 };
 
-export default LoginInput;
+export default HickHubInput;

@@ -1,7 +1,7 @@
 import { passwordInputChanged } from '../actions/loginActions';
 import { connect } from 'react-redux';
 import { LoginState } from '../reducers/loginReducers';
-import LoginInput from '../components/loginInput';
+import HickHubInputInput from '../components/common/hickHubInput';
 
 const mapStateToProps = state => {
     var isDisabled = state.loginState == LoginState.LOGGING_IN;
@@ -25,6 +25,6 @@ const mapDispatchToProps = dispatch => {
 const PasswordInputContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(LoginInput);
+)(HickHubInputInput);
 
 export default PasswordInputContainer;
