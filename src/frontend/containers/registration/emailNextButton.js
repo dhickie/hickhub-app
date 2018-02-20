@@ -1,18 +1,24 @@
-import EmailNextButton from '../../components/registration/emailNextButton';
+import NextButton from '../../components/registration/nextButton';
 import { connect } from 'react-redux';
 import { startCheckingEmail } from '../../actions/registrationActions';
+import { RegistrationState } from '../../reducers/registrationReducers';
 
 const mapStateToProps = state => {
+    var isLoading = state.registration.state == RegistrationState.CHECKING_EMAIL ? true : false;
+    var isDisabled = false;
+    var sectionValues = [state.registration.email];
+
     return {
-        registrationState: state.registration.state,
-        email: state.registration.email
+        isLoading,
+        isDisabled,
+        sectionValues
     };
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onClick: (email) => {
-            dispatch(startEmailCheck(email));
+        onClick: (sectionValues) => {
+            dispatch(startEmailCheck(sectionValues[0]));
         }
     };
 }
@@ -20,6 +26,6 @@ const mapDispatchToProps = dispatch => {
 const EmailNextButtonContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(EmailNextButton);
+)(NextButton);
 
 export default EmailNextButtonContainer;

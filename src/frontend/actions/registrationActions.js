@@ -4,6 +4,9 @@ export const EMAIL_CHECK_STARTED = 'EMAIL_CHECK_STARTED';
 export const EMAIL_CHECK_SUCCESSFUL = 'EMAIL_CHECK_SUCCCESSFUL';
 export const EMAIL_CHECK_FAILED = 'EMAIL_CHECK_FAILED';
 export const EMAIL_INPUT_CHANGED = 'EMAIL_INPUT_CHANGED';
+export const PASSWORD_INPUT_CHANGED = 'PASSWORD_INPUT_CHANGED';
+export const REPEAT_PASSWORD_INPUT_CHANGED = 'REPEAT_PASSWORD_INPUT_CHANGED';
+export const PASSWORD_COMPLETE = 'PASSWORD_COMPLETE';
 
 // Constants
 const EMAIL_IN_USE = 'This email address is already in use. Please use a different address.';
@@ -24,6 +27,18 @@ function emailCheckSuccessful() {
 
 export function emailInputChanged(newValue) {
     return { type: EMAIL_INPUT_CHANGED, newValue };
+};
+
+export function passwordInputChanged(newValue) {
+    return { type: PASSWORD_INPUT_CHANGED, newValue };
+};
+
+export function repeatPasswordInputChanged(newValue) {
+    return { type: REPEAT_PASSWORD_INPUT_CHANGED, newValue };
+};
+
+export function passwordComplete() {
+    return { type: PASSWORD_COMPLETE };
 };
 
 // Async action creators
