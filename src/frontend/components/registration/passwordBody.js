@@ -1,5 +1,4 @@
 import React from 'react';
-import { Input } from 'semantic-ui-react';
 import { PasswordInputContainer } from '../../containers/registration/passwordInput';
 import { RepeatPasswordInputContainer } from '../../containers/registration/repeatPasswordInput';
 import { PasswordNextButtonContainer } from '../../containers/registration/passwordNextButton';

@@ -6,7 +6,12 @@ import {
     PASSWORD_INPUT_CHANGED,
     REPEAT_PASSWORD_INPUT_CHANGED,
     PASSWORD_COMPLETE,
-    SECURITY_QUESTION_SELECTED
+    SECURITY_QUESTION_SELECTED,
+    SECURITY_QUESTION_INPUT_CHANGED,
+    SECURITY_ANSWER_INPUT_CHANGED,
+    REGISTER_STARTED,
+    REGISTER_FAILED,
+    REGISTER_SUCCESSFUL
 } from '../actions/registrationActions';
 
 export const RegistrationState = {
@@ -23,12 +28,15 @@ export const SecurityQuestions = [
     `Enter your own question`
 ];
 
+const customQuestionIndex = 2;
+
 const initialState = {
     state: RegistrationState.AWAITING_EMAIL,
     email: '',
     password: '',
     repeatPassword: '',
     securityQuestion: '',
+    securityAnswer: '',
     customSecurityQuestion: false,
     error: ''
 };
@@ -50,11 +58,22 @@ export function registrationWindow(state = initialState, action) {
         case PASSWORD_COMPLETE:
             return Object.assign({}, state, { state: RegistrationState.AWAITING_SECURITY });
         case SECURITY_QUESTION_SELECTED:
-            if (action.newValue == 2) {
+            if (action.newValue == customQuestionIndex) {
                 return Object.assign({}, state, { customSecurityQuestion: true, securityQuestion: '' });
             } else {
                 return Object.assign({}, state, { customSecurityQuestion: false, securityQuestion: SecurityQuestions[action.newValue] });
             }
+        case SECURITY_QUESTION_INPUT_CHANGED:
+            return Object.assign({}, state, { securityQuestion: action.newValue });
+        case SECURITY_ANSWER_INPUT_CHANGED:
+            return Object.assign({}, state, { securityAnswer: action.newValue });
+        case REGISTER_STARTED:
+            return Object.assign({}, state, { state: RegistrationState.REGISTERING });
+        case REGISTER_FAILED:
+            return Object.assign({}, state, { state: RegistrationState.AWAITING_SECURITY });
+        case REGISTER_SUCCESSFUL:
+            // TODO: We don't have anywhere to go yet when registration is successful
+            return Object.assign({}, state, { state: RegistrationState.AWAITING_SECURITY });
         default:
             return state;
     }

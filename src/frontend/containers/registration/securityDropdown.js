@@ -15,7 +15,7 @@ const mapStateToProps = state => {
         fluid: true,
         selection: true,
         placeholder: 'Select a security question',
-        options: options
+        options
     };
 }
 

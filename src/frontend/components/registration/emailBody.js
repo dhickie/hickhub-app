@@ -1,5 +1,4 @@
 import React from 'react';
-import { Input } from 'semantic-ui-react';
 import { EmailInputContainer } from '../../containers/registration/emailInput';
 import { EmailNextButtonContainer } from '../../containers/registration/emailNextButton';
 
