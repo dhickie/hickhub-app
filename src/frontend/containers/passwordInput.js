@@ -1,12 +1,13 @@
 import { passwordInputChanged } from '../actions/loginActions';
 import { connect } from 'react-redux';
 import { LoginState } from '../reducers/loginReducers';
-import HickHubInputInput from '../components/common/hickHubInput';
+import { Input } from 'semantic-ui-react';
 
 const mapStateToProps = state => {
     var isDisabled = state.loginState == LoginState.LOGGING_IN;
 
     return {
+        fluid: true,
         type: 'password',
         disabled: isDisabled,
         value: state.password,
@@ -16,8 +17,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onChange: (newValue) => {
-            dispatch(passwordInputChanged(newValue))
+        onChange: (event, data) => {
+            dispatch(passwordInputChanged(event.target.value))
         }
     };
 };
@@ -25,6 +26,6 @@ const mapDispatchToProps = dispatch => {
 const PasswordInputContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(HickHubInputInput);
+)(Input);
 
 export default PasswordInputContainer;

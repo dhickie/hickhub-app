@@ -5,7 +5,8 @@ import {
     EMAIL_INPUT_CHANGED,
     PASSWORD_INPUT_CHANGED,
     REPEAT_PASSWORD_INPUT_CHANGED,
-    PASSWORD_COMPLETE
+    PASSWORD_COMPLETE,
+    SECURITY_QUESTION_SELECTED
 } from '../actions/registrationActions';
 
 export const RegistrationState = {
@@ -16,11 +17,19 @@ export const RegistrationState = {
     REGISTERING: 'REGISTERING'
 };
 
+export const SecurityQuestions = [
+    `What was your Mother's maiden name?`,
+    `What's your hometown?`,
+    `Enter your own question`
+];
+
 const initialState = {
     state: RegistrationState.AWAITING_EMAIL,
     email: '',
     password: '',
     repeatPassword: '',
+    securityQuestion: '',
+    customSecurityQuestion: false,
     error: ''
 };
 
@@ -40,6 +49,12 @@ export function registrationWindow(state = initialState, action) {
             return Object.assign({}, state, { repeatPassword: action.newValue });
         case PASSWORD_COMPLETE:
             return Object.assign({}, state, { state: RegistrationState.AWAITING_SECURITY });
+        case SECURITY_QUESTION_SELECTED:
+            if (action.newValue == 2) {
+                return Object.assign({}, state, { customSecurityQuestion: true, securityQuestion: '' });
+            } else {
+                return Object.assign({}, state, { customSecurityQuestion: false, securityQuestion: SecurityQuestions[action.newValue] });
+            }
         default:
             return state;
     }

@@ -7,6 +7,7 @@ export const EMAIL_INPUT_CHANGED = 'EMAIL_INPUT_CHANGED';
 export const PASSWORD_INPUT_CHANGED = 'PASSWORD_INPUT_CHANGED';
 export const REPEAT_PASSWORD_INPUT_CHANGED = 'REPEAT_PASSWORD_INPUT_CHANGED';
 export const PASSWORD_COMPLETE = 'PASSWORD_COMPLETE';
+export const SECURITY_QUESTION_SELECTED = 'SECURITY_QUESTION_SELECTED';
 
 // Constants
 const EMAIL_IN_USE = 'This email address is already in use. Please use a different address.';
@@ -40,6 +41,10 @@ export function repeatPasswordInputChanged(newValue) {
 export function passwordComplete() {
     return { type: PASSWORD_COMPLETE };
 };
+
+export function securityQuestionSelected(newValue) {
+    return { type: SECURITY_QUESTION_SELECTED, newValue };
+}
 
 // Async action creators
 export function startEmailCheck(email) {

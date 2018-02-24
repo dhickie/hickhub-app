@@ -1,10 +1,11 @@
-import HickHubInput from '../../components/common/hickHubInput';
+import { Input } from 'semantic-ui-react';
 import { RegistrationState } from '../../reducers/registrationReducers';
 import { repeatPasswordInputChanged } from '../../actions/registrationActions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
     return {
+        fluid: true,
         type: 'password',
         disabled: false,
         value: state.registration.repeatPassword,
@@ -14,8 +15,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onChange: (newValue) => {
-            dispatch(repeatPasswordInputChanged(newValue));
+        onChange: (event, data) => {
+            dispatch(repeatPasswordInputChanged(event.target.value));
         }
     };
 };
@@ -23,6 +24,6 @@ const mapDispatchToProps = dispatch => {
 const RepeatPasswordInputContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(HickHubInput);
+)(Input);
 
 export default RepeatPasswordInputContainer;

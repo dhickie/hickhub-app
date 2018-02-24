@@ -1,12 +1,13 @@
 import { emailInputChanged } from '../actions/loginActions';
 import { connect } from 'react-redux';
 import { LoginState } from '../reducers/loginReducers';
-import HickHubInput from '../components/common/hickHubInput';
+import { Input } from 'semantic-ui-react';
 
 const mapStateToProps = state => {
     var isDisabled = state.loginState == LoginState.LOGGING_IN;
 
     return {
+        fluid: true,
         type: 'input',
         disabled: isDisabled,
         value: state.email,
@@ -16,8 +17,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onChange: (newValue) => {
-            dispatch(emailInputChanged(newValue));
+        onChange: (event, data) => {
+            dispatch(emailInputChanged(event.target.value));
         }
     };
 };
@@ -25,6 +26,6 @@ const mapDispatchToProps = dispatch => {
 const EmailInputContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(HickHubInput);
+)(Input);
 
 export default EmailInputContainer;
