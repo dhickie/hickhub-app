@@ -5,10 +5,12 @@ import {
     EMAIL_INPUT_CHANGED,
     PASSWORD_INPUT_CHANGED,
     REPEAT_PASSWORD_INPUT_CHANGED,
+    PASSWORD_BACK_CLICKED,
     PASSWORD_COMPLETE,
     SECURITY_QUESTION_SELECTED,
     SECURITY_QUESTION_INPUT_CHANGED,
     SECURITY_ANSWER_INPUT_CHANGED,
+    SECURITY_BACK_CLICKED,
     REGISTER_STARTED,
     REGISTER_FAILED,
     REGISTER_SUCCESSFUL
@@ -55,6 +57,8 @@ export function registration(state = initialState, action) {
             return Object.assign({}, state, { password: action.newValue });
         case REPEAT_PASSWORD_INPUT_CHANGED:
             return Object.assign({}, state, { repeatPassword: action.newValue });
+        case PASSWORD_BACK_CLICKED:
+            return Object.assign({}, state, { state: RegistrationState.AWAITING_EMAIL });
         case PASSWORD_COMPLETE:
             return Object.assign({}, state, { state: RegistrationState.AWAITING_SECURITY });
         case SECURITY_QUESTION_SELECTED:
@@ -67,6 +71,8 @@ export function registration(state = initialState, action) {
             return Object.assign({}, state, { securityQuestion: action.newValue });
         case SECURITY_ANSWER_INPUT_CHANGED:
             return Object.assign({}, state, { securityAnswer: action.newValue });
+        case SECURITY_BACK_CLICKED:
+            return Object.assign({}, state, { state: RegistrationState.AWAITING_PASSWORD });
         case REGISTER_STARTED:
             return Object.assign({}, state, { state: RegistrationState.REGISTERING });
         case REGISTER_FAILED:

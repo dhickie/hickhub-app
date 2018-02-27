@@ -2,6 +2,7 @@ import ButtonRow from '../../components/registration/buttonRow';
 import { RegistrationState } from '../../reducers/registrationReducers';
 import { connect } from 'react-redux';
 import { startRegister } from '../../actions/registrationActions';
+import { securityBackClicked } from '../../actions/registrationActions';
 
 const mapStateToProps = state => {
     var nextLoading = state.registration.state == RegistrationState.REGISTERING ? true : false;
@@ -13,12 +14,16 @@ const mapStateToProps = state => {
         state.registration.securityQuestion,
         state.registration.securityAnswer
     ];
+    var backEnabled = true;
+    var backContent = 'Back';
 
     return {
         nextLoading,
         nextDisabled,
         nextContent,
-        nextData
+        nextData,
+        backEnabled,
+        backContent
     };
 };
 
@@ -31,6 +36,9 @@ const mapDispatchToProps = dispatch => {
             var securityAnswer = data.sectionvalues[3];
 
             dispatch(startRegister(email, password, securityQuestion, securityAnswer));
+        },
+        onBackClick: (event, data) => {
+            dispatch(securityBackClicked());
         }
     };
 };

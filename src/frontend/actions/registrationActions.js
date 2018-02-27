@@ -6,10 +6,12 @@ export const EMAIL_CHECK_FAILED = 'EMAIL_CHECK_FAILED';
 export const EMAIL_INPUT_CHANGED = 'EMAIL_INPUT_CHANGED';
 export const PASSWORD_INPUT_CHANGED = 'PASSWORD_INPUT_CHANGED';
 export const REPEAT_PASSWORD_INPUT_CHANGED = 'REPEAT_PASSWORD_INPUT_CHANGED';
+export const PASSWORD_BACK_CLICKED = 'PASSWORD_BACK_CLICKED';
 export const PASSWORD_COMPLETE = 'PASSWORD_COMPLETE';
 export const SECURITY_QUESTION_SELECTED = 'SECURITY_QUESTION_SELECTED';
 export const SECURITY_QUESTION_INPUT_CHANGED = 'SECURITY_QUESTION_INPUT_CHANGED';
 export const SECURITY_ANSWER_INPUT_CHANGED = 'SECURITY_ANSWER_INPUT_CHANGED';
+export const SECURITY_BACK_CLICKED = 'SECURITY_BACK_CLICKED';
 export const REGISTER_STARTED = 'REGISTER_STARTED';
 export const REGISTER_FAILED = 'REGISTER_FAILED';
 export const REGISTER_SUCCESSFUL = 'REGISTER_SUCCESSFUL';
@@ -56,6 +58,10 @@ export function repeatPasswordInputChanged(newValue) {
     return { type: REPEAT_PASSWORD_INPUT_CHANGED, newValue };
 };
 
+export function passwordBackClicked() {
+    return { type: PASSWORD_BACK_CLICKED };
+};
+
 export function passwordComplete() {
     return { type: PASSWORD_COMPLETE };
 };
@@ -70,6 +76,10 @@ export function securityQuestionInputChanged(newValue) {
 
 export function securityAnswerInputChanged(newValue) {
     return { type: SECURITY_ANSWER_INPUT_CHANGED, newValue };
+};
+
+export function securityBackClicked() {
+    return { type: SECURITY_BACK_CLICKED };
 };
 
 // Async action creators
