@@ -1,6 +1,7 @@
 import React from 'react';
 import thunkMiddleware from 'redux-thunk';
-import { loginWindow } from './reducers/loginReducers';
+import RegistrationWindowContainer from './containers/registration/registrationWindow';
+import { hickHubApp } from './reducers/root';
 import { LoginWindow } from './components/loginWindow';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -10,7 +11,7 @@ const preloadedState = window.__PRELOADED_STATE__;
 delete window.__PRELOADED_STATE__;
 
 const store = createStore(
-    loginWindow,
+    hickHubApp,
     preloadedState,
     applyMiddleware(
         thunkMiddleware
@@ -19,7 +20,7 @@ const store = createStore(
 
 hydrate(
     <Provider store={store}>
-        <LoginWindow />
+        <RegistrationWindowContainer />
     </Provider>,
     document.getElementById('root')
 );

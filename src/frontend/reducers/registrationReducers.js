@@ -41,7 +41,7 @@ const initialState = {
     error: ''
 };
 
-export function registrationWindow(state = initialState, action) {
+export function registration(state = initialState, action) {
     switch (action.type) {
         case EMAIL_INPUT_CHANGED:
             return Object.assign({}, state, { email: action.newValue });

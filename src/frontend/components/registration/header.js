@@ -6,7 +6,7 @@ const Header = props => {
     var titles = [
         'Email',
         'Password',
-        'Security Question'
+        'Security'
     ];
     var icons = [
         'at',
@@ -16,14 +16,14 @@ const Header = props => {
     var currentStage = props.currentStage;
 
     return (
-        <Step.Group>
+        <Step.Group widths={3}>
             {titles.map(function(name, index){
                 var disabled = currentStage < index;
                 var active = currentStage == index;
                 var completed = currentStage > index;
 
                 return (
-                    <Step disabled={disabled} active={active} completed={completed}>
+                    <Step key={index} disabled={disabled} active={active} completed={completed}>
                         <Icon name={icons[index]}/>
                         <Step.Content>
                             <Step.Title>{titles[index]}</Step.Title>
@@ -35,7 +35,7 @@ const Header = props => {
     );
 };
 
-Header.PropTypes = {
+Header.propTypes = {
     currentStage: PropTypes.number
 };
 

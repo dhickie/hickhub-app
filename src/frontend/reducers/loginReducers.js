@@ -24,7 +24,7 @@ const initialState = {
     authCode: ''
 };
 
-export function loginWindow(state = initialState, action) {
+export function login(state = initialState, action) {
     switch (action.type) {
         case LOGIN_STARTED:
             return Object.assign({}, state, { loginState: LoginState.LOGGING_IN });

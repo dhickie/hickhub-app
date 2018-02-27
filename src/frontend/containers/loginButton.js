@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import LoginButton from '../components/loginButton';
 
 const mapStateToProps = state => {
+    var login = state.login;
     return {
-        loginState: state.loginState,
-        email: state.email,
-        password: state.password,
-        clientId: state.clientId,
-        scope: state.scope,
-        redirectUri: state.redirectUri
+        loginState: login.loginState,
+        email: login.email,
+        password: login.password,
+        clientId: login.clientId,
+        scope: login.scope,
+        redirectUri: login.redirectUri
     };
 };
 

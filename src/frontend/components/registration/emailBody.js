@@ -1,13 +1,18 @@
 import React from 'react';
-import { EmailInputContainer } from '../../containers/registration/emailInput';
-import { EmailNextButtonContainer } from '../../containers/registration/emailNextButton';
+import EmailInputContainer from '../../containers/registration/emailInput';
+import EmailButtonRowContainer from '../../containers/registration/emailButtonRow';
 
 const EmailBody = props => {
+    var emailStyle = {
+        maxWidth: '250px',
+        padding: '10px 0'
+    };
+
     return (
         <div>
             Enter your email address:
-            <EmailInputContainer />
-            <EmailNextButtonContainer />
+            <EmailInputContainer style={emailStyle}/>
+            <EmailButtonRowContainer />
         </div>
     );
 };

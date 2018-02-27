@@ -1,16 +1,21 @@
 import React from 'react';
-import { PasswordInputContainer } from '../../containers/registration/passwordInput';
-import { RepeatPasswordInputContainer } from '../../containers/registration/repeatPasswordInput';
-import { PasswordNextButtonContainer } from '../../containers/registration/passwordNextButton';
+import PasswordInputContainer from '../../containers/registration/passwordInput';
+import RepeatPasswordInputContainer from '../../containers/registration/repeatPasswordInput';
+import PasswordButtonRowContainer from '../../containers/registration/passwordButtonRow';
 
 const PasswordBody = props => {
+    var inputStyle = {
+        maxWidth: '250px',
+        padding: '10px 0'
+    };
+
     return (
         <div>
             Enter a password:
-            <PasswordInputContainer />
+            <PasswordInputContainer style={inputStyle}/>
             Re-enter your password:
-            <RepeatPasswordInputContainer />
-            <PasswordNextButtonContainer />
+            <RepeatPasswordInputContainer style={inputStyle}/>
+            <PasswordButtonRowContainer />
         </div>
     );
 };

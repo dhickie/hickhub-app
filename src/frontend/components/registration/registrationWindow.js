@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import EmailBody from './emailBody';
 import PasswordBody from './passwordBody';
 import HeaderContainer from '../../containers/registration/header';
-import SecurityBodyContainer from '../../containers/registration/securityBodyContainer';
+import SecurityBodyContainer from '../../containers/registration/securityBody';
 import { RegistrationState } from '../../reducers/registrationReducers';
 
 const RegistrationWindow = props => {
@@ -28,10 +28,20 @@ const RegistrationWindow = props => {
             break;
     }
 
+    var windowStyle = {
+        maxWidth: '500px'
+    };
+
+    var bodyStyle = {
+        padding: '10px 10px'
+    };
+
     return (
-        <div>
+        <div style={windowStyle}>
             <HeaderContainer />
-            {body}
+            <div style={bodyStyle}>
+                {body}
+            </div>
         </div>
     );
 };

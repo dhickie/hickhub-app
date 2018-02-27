@@ -4,13 +4,14 @@ import { LoginState } from '../reducers/loginReducers';
 import { Input } from 'semantic-ui-react';
 
 const mapStateToProps = state => {
-    var isDisabled = state.loginState == LoginState.LOGGING_IN;
+    var login = state.login;
+    var isDisabled = login.loginState == LoginState.LOGGING_IN;
 
     return {
         fluid: true,
         type: 'input',
         disabled: isDisabled,
-        value: state.email,
+        value: login.email,
         placeholder: 'Email address'
     };
 };

@@ -3,7 +3,7 @@ import LoginError from '../components/loginError';
 
 const mapStateToProps = state => {
     return {
-        errorMessage: state.error
+        errorMessage: state.login.error
     };
 }
 

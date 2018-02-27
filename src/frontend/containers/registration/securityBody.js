@@ -1,4 +1,4 @@
-import { SecurityBody } from '../../components/registration/securityBody';
+import SecurityBody from '../../components/registration/securityBody';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
