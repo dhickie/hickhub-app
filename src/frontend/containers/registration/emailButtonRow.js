@@ -2,10 +2,11 @@ import ButtonRow from '../../components/registration/buttonRow';
 import { connect } from 'react-redux';
 import { startEmailCheck } from '../../actions/registrationActions';
 import { RegistrationState } from '../../reducers/registrationReducers';
+import { validateEmail } from '../../validators/registration';
 
 const mapStateToProps = state => {
     var nextLoading = state.registration.state == RegistrationState.CHECKING_EMAIL ? true : false;
-    var nextDisabled = false;
+    var nextDisabled = !validateEmail(state.registration.email);
     var nextContent = 'Next';
     var nextData = [state.registration.email];
 
