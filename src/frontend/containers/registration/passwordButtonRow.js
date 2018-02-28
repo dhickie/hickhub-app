@@ -2,9 +2,13 @@ import ButtonRow from '../../components/registration/buttonRow';
 import { connect } from 'react-redux';
 import { passwordComplete } from '../../actions/registrationActions';
 import { passwordBackClicked } from '../../actions/registrationActions';
+import { validatePassword, validateRepeatPassword } from '../../validators/registration';
 
 const mapStateToProps = state => {
-    var nextDisabled = state.registration.password != state.registration.repeatPassword;
+    var password = state.registration.password;
+    var repeatPassword = state.registration.repeatPassword;
+
+    var nextDisabled = !validatePassword(password) || !validateRepeatPassword(password, repeatPassword);
     var nextLoading = false;
     var nextContent = 'Next';
     var nextData = [];
