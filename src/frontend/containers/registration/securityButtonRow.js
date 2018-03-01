@@ -3,10 +3,13 @@ import { RegistrationState } from '../../reducers/registrationReducers';
 import { connect } from 'react-redux';
 import { startRegister } from '../../actions/registrationActions';
 import { securityBackClicked } from '../../actions/registrationActions';
+import { validateSecurityText } from '../../validators/registration';
 
 const mapStateToProps = state => {
     var nextLoading = state.registration.state == RegistrationState.REGISTERING ? true : false;
-    var nextDisabled = false;
+    var question = state.registration.securityQuestion;
+    var answer = state.registration.securityAnswer;
+    var nextDisabled = !validateSecurityText(question) || !validateSecurityText(question);
     var nextContent = 'Register';
     var nextData = [
         state.registration.email,

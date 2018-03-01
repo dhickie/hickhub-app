@@ -14,6 +14,10 @@ export const validateRepeatPassword = (password, repeatPassword) => {
     return password === repeatPassword;
 }
 
+export const validateSecurityText = text => {
+    return text.length > 0 && containsLetter(text);
+}
+
 const containsLetter = value => {
     return value.match(/[a-z]/i);
 };
