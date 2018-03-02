@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import request from 'request';
+import dotenv from 'dotenv';
 import React from 'react';
 import RegistrationWindowContainer from './frontend/containers/registration/registrationWindow';
 import { createStore } from 'redux';
@@ -11,6 +12,8 @@ import { LoginState } from './frontend/reducers/loginReducers';
 import { RegistrationState } from './frontend/reducers/registrationReducers';
 import { LoginWindow } from './frontend/components/loginWindow';
 import { access } from 'fs';
+
+dotenv.config();
 
 const port = 3100;
 const refreshBuffer = 10000;
@@ -198,7 +201,7 @@ function handleEmailCheck(req, res) {
             console.error(`An error occured checking whether the email was available: ${error}, status code: ${apiRes.statusCode}`);
             res.sendStatus(500);
         } else {
-            res.json(body);
+            res.send(body);
         }
     });
 }
@@ -226,7 +229,7 @@ function handleRegistrationRequest(req, res) {
             console.error(`An error occured registering the user: ${error}, status code: ${apiRes.statusCode}`);
             res.sendStatus(500);
         } else {
-            res.json(body);
+            res.send(body);
         }
     });
 }
