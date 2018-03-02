@@ -85,37 +85,36 @@ export function securityBackClicked() {
 // Async action creators
 export function startEmailCheck(email) {
     return function(dispatch) {
-        dispatch(emailCheckSuccessful());
-        // dispatch(emailCheckStarted());
+        dispatch(emailCheckStarted());
 
-        // var body = JSON.stringify({
-        //     email
-        // });
-        // var options = {
-        //     method: 'POST',
-        //     body: body
-        // };
+        var body = JSON.stringify({
+            email
+        });
+        var options = {
+            method: 'POST',
+            body: body
+        };
 
-        // fetch('/registration/emailcheck', options)
-        // .then(response => {
-        //     if (response.status != 200) {
-        //         dispatch(emailCheckFailed(INTERNAL_EMAIL_ERROR));
-        //     } else {
-        //         // Handle the successful response
-        //         response.json()
-        //         .then(json => {
-        //             if (json.email_available) {
-        //                 dispatch(emailCheckSuccessful());
-        //             } else {
-        //                 dispatch(emailCheckFailed(EMAIL_IN_USE));
-        //             }
-        //         });
-        //     }
-        // },
-        // error => {
-        //     console.error('An error occured checking the email availability.', error);
-        //     dispatch(emailCheckFailed(INTERNAL_EMAIL_ERROR));
-        // });
+        fetch('/registration/emailcheck', options)
+        .then(response => {
+            if (response.status != 200) {
+                dispatch(emailCheckFailed(INTERNAL_EMAIL_ERROR));
+            } else {
+                // Handle the successful response
+                response.json()
+                .then(json => {
+                    if (json.email_available) {
+                        dispatch(emailCheckSuccessful());
+                    } else {
+                        dispatch(emailCheckFailed(EMAIL_IN_USE));
+                    }
+                });
+            }
+        },
+        error => {
+            console.error('An error occured checking the email availability.', error);
+            dispatch(emailCheckFailed(INTERNAL_EMAIL_ERROR));
+        });
     };
 };
 
