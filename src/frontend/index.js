@@ -2,7 +2,7 @@ import React from 'react';
 import thunkMiddleware from 'redux-thunk';
 import RegistrationWindowContainer from './containers/registration/registrationWindow';
 import { hickHubApp } from './reducers/root';
-import { LoginWindow } from './components/loginWindow';
+import { LoginWindow } from './components/login/loginWindow';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';

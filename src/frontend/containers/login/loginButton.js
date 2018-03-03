@@ -1,6 +1,6 @@
-import { startLogin } from '../actions/loginActions';
+import { startLogin } from '../../actions/loginActions';
 import { connect } from 'react-redux';
-import LoginButton from '../components/loginButton';
+import LoginButton from '../../components/login/loginButton';
 
 const mapStateToProps = state => {
     var login = state.login;

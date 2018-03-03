@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import LoginError from '../components/loginError';
+import LoginError from '../../components/login/loginError';
 
 const mapStateToProps = state => {
     return {

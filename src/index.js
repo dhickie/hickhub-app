@@ -10,7 +10,7 @@ import { renderToString } from 'react-dom/server';
 import { hickHubApp } from './frontend/reducers/root';
 import { LoginState } from './frontend/reducers/loginReducers';
 import { RegistrationState } from './frontend/reducers/registrationReducers';
-import { LoginWindow } from './frontend/components/loginWindow';
+import { LoginWindow } from './frontend/components/login/loginWindow';
 import { access } from 'fs';
 
 dotenv.config();

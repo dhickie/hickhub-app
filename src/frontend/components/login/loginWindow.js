@@ -1,8 +1,8 @@
 import React from 'react';
-import EmailInputContainer from '../containers/emailInput';
-import PasswordInputContainer from '../containers/passwordInput';
-import LoginButtonContainer from '../containers/loginButton';
-import LoginErrorContainer from '../containers/loginError';
+import EmailInputContainer from '../../containers/login/emailInput';
+import PasswordInputContainer from '../../containers/login/passwordInput';
+import LoginButtonContainer from '../../containers/login/loginButton';
+import LoginErrorContainer from '../../containers/login/loginError';
 import { Grid, Header, Image } from 'semantic-ui-react';
 
 export const LoginWindow = props => {

@@ -1,6 +1,6 @@
-import { emailInputChanged } from '../actions/loginActions';
+import { passwordInputChanged } from '../../actions/loginActions';
 import { connect } from 'react-redux';
-import { LoginState } from '../reducers/loginReducers';
+import { LoginState } from '../../reducers/loginReducers';
 import { Input } from 'semantic-ui-react';
 
 const mapStateToProps = state => {
@@ -9,24 +9,24 @@ const mapStateToProps = state => {
 
     return {
         fluid: true,
-        type: 'input',
+        type: 'password',
         disabled: isDisabled,
-        value: login.email,
-        placeholder: 'Email address'
+        value: login.password,
+        placeholder: 'Password'
     };
-};
+}
 
 const mapDispatchToProps = dispatch => {
     return {
         onChange: (event, data) => {
-            dispatch(emailInputChanged(event.target.value));
+            dispatch(passwordInputChanged(event.target.value))
         }
     };
 };
 
-const EmailInputContainer = connect(
+const PasswordInputContainer = connect(
     mapStateToProps,
     mapDispatchToProps
 )(Input);
 
-export default EmailInputContainer;
+export default PasswordInputContainer;

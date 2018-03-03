@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { LoginState } from '../reducers/loginReducers';
+import { LoginState } from '../../reducers/loginReducers';
 
 const LoginButton = props => {
     var onClick = () => {
