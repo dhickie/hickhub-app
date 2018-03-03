@@ -26,7 +26,8 @@ const mapStateToProps = state => {
         nextContent,
         nextData,
         backEnabled,
-        backContent
+        backContent,
+        error: state.registration.error
     };
 };
 

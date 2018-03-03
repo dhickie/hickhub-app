@@ -14,7 +14,8 @@ const mapStateToProps = state => {
         nextLoading,
         nextDisabled,
         nextContent,
-        nextData
+        nextData,
+        error: state.registration.error
     };
 }
 

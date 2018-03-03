@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Grid } from 'semantic-ui-react';
+import { Button, Grid, Container } from 'semantic-ui-react';
 
 const ButtonRow = props => {
     var backButton = <div/>;
@@ -18,7 +18,11 @@ const ButtonRow = props => {
                 <Grid.Column>
                     {backButton}
                 </Grid.Column>
-                <Grid.Column/>
+                <Grid.Column>
+                    <Container textAlign='center'>
+                        <font color='red'>{props.error}</font>
+                    </Container>
+                </Grid.Column>
                 <Grid.Column>
                     <Button 
                         fluid 
@@ -35,6 +39,7 @@ const ButtonRow = props => {
 };
 
 ButtonRow.propTypes = {
+    error: PropTypes.string,
     backEnabled: PropTypes.bool,
     backContent: PropTypes.string,
     onBackClick: PropTypes.func,
