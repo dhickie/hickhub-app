@@ -1,7 +1,6 @@
-import { login } from './loginReducers';
-import { LoginState } from './loginReducers';
-import { registration } from './registrationReducers';
-import { RegistrationState } from './registrationReducers';
+import { login, LoginState } from './loginReducers';
+import { registration, RegistrationState } from './registrationReducers';
+import { app, AppState } from './appReducers';
 import { combineReducers } from 'redux';
 
 const initialLoginState = {
@@ -27,14 +26,20 @@ const initialRegistrationState = {
     error: ''
 };
 
+const initialAppState = {
+    state: AppState.LOGIN
+};
+
 const initialState = {
     login: initialLoginState,
-    registration: initialRegistrationState
+    registration: initialRegistrationState,
+    app: initialAppState
 };
 
 export function hickHubApp(state = initialState, action) {
     return {
         login: login(state.login, action),
-        registration: registration(state.registration, action)
+        registration: registration(state.registration, action),
+        app: app(state.app, action)
     };
 };

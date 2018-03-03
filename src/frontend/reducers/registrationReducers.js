@@ -50,7 +50,7 @@ export function registration(state = initialState, action) {
         case EMAIL_CHECK_STARTED:
             return Object.assign({}, state, { state: RegistrationState.CHECKING_EMAIL });
         case EMAIL_CHECK_SUCCESSFUL:
-            return Object.assign({}, state, { state: RegistrationState.AWAITING_PASSWORD });
+            return Object.assign({}, state, { state: RegistrationState.AWAITING_PASSWORD, error: '' });
         case EMAIL_CHECK_FAILED:
             return Object.assign({}, state, { state: RegistrationState.AWAITING_EMAIL, error: action.error });
         case PASSWORD_INPUT_CHANGED:
@@ -79,7 +79,7 @@ export function registration(state = initialState, action) {
             return Object.assign({}, state, { state: RegistrationState.AWAITING_SECURITY });
         case REGISTER_SUCCESSFUL:
             // TODO: We don't have anywhere to go yet when registration is successful
-            return Object.assign({}, state, { state: RegistrationState.AWAITING_SECURITY });
+            return Object.assign({}, state, { state: RegistrationState.AWAITING_SECURITY, error: '' });
         default:
             return state;
     }

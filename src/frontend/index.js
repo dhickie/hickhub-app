@@ -1,8 +1,7 @@
 import React from 'react';
 import thunkMiddleware from 'redux-thunk';
-import RegistrationWindowContainer from './containers/registration/registrationWindow';
+import AppContainer from './containers/app';
 import { hickHubApp } from './reducers/root';
-import { LoginWindow } from './components/login/loginWindow';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -20,7 +19,7 @@ const store = createStore(
 
 hydrate(
     <Provider store={store}>
-        <RegistrationWindowContainer />
+        <AppContainer />
     </Provider>,
     document.getElementById('root')
 );

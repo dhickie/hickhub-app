@@ -3,14 +3,14 @@ import bodyParser from 'body-parser';
 import request from 'request';
 import dotenv from 'dotenv';
 import React from 'react';
-import RegistrationWindowContainer from './frontend/containers/registration/registrationWindow';
+import AppContainer from './frontend/containers/app';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
 import { hickHubApp } from './frontend/reducers/root';
 import { LoginState } from './frontend/reducers/loginReducers';
 import { RegistrationState } from './frontend/reducers/registrationReducers';
-import { LoginWindow } from './frontend/components/login/loginWindow';
+import { AppState } from './frontend/reducers/appReducers';
 import { access } from 'fs';
 
 dotenv.config();
@@ -135,24 +135,13 @@ function handleLogin(req, res) {
             redirectUri: req.query.redirect_uri || '',
             state: req.query.state || '',
             authCode: ''
+        },
+        app: {
+            appState: AppState.LOGIN
         }
     };
 
-    // Create a new store
-    const store = createStore(hickHubApp, initialState);
-
-    // Render the app as a string
-    const html = renderToString(
-        <Provider store={store}>
-            <LoginWindow />
-        </Provider>
-    );
-
-    // Get the initial state from the store
-    const finalState = store.getState();
-
-    // Send the rendered page back to the client
-    res.send(renderFullPage(html, finalState));
+    renderApp(initialState, res);
 }
 
 function handleRegister(req, res) {
@@ -167,22 +156,30 @@ function handleRegister(req, res) {
             securityAnswer: '',
             customSecurityQuestion: false,
             error: ''
+        },
+        app: {
+            appState: AppState.REGISTRATION
         }
     };
 
+    renderApp(initialState, res);
+}
+
+function renderApp(initialState, res) {
     // Create a new store
     const store = createStore(hickHubApp, initialState);
 
     // Render the app as a string
     const html = renderToString(
         <Provider store={store}>
-            <RegistrationWindowContainer />
+            <AppContainer />
         </Provider>
     );
 
     // Get the initial state from the store
     const finalState = store.getState();
 
+    // Return the full rendered page
     res.send(renderFullPage(html, finalState));
 }
 

@@ -5,7 +5,7 @@ import LoginButtonContainer from '../../containers/login/loginButton';
 import LoginErrorContainer from '../../containers/login/loginError';
 import { Grid, Header, Image } from 'semantic-ui-react';
 
-export const LoginWindow = props => {
+const LoginWindow = props => {
     var inputPadding = {
         padding: '10px 0'
     };
@@ -39,3 +39,5 @@ export const LoginWindow = props => {
         </div>
     );
 };
+
+export default LoginWindow;

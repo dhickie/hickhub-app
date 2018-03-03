@@ -29,7 +29,9 @@ const RegistrationWindow = props => {
     }
 
     var windowStyle = {
-        maxWidth: '500px'
+        margin: '50px auto',
+        maxWidth: '500px',
+        border: '1px solid #afafaf'
     };
 
     var bodyStyle = {
