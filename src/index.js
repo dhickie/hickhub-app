@@ -109,6 +109,9 @@ function refreshWorker() {
 function setupServer() {
     var app = express();
     app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({
+        extended: true
+    }));
     app.use('/static', express.static('./static'));
     app.use('/login', handleLogin);
     app.use('/register', handleRegister);

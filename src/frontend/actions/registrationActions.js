@@ -92,7 +92,10 @@ export function startEmailCheck(email) {
         });
         var options = {
             method: 'POST',
-            body: body
+            body: body,
+            headers: {
+                'Content-Type': 'application/json'
+            }
         };
 
         fetch('/registration/emailcheck', options)
@@ -130,7 +133,10 @@ export function startRegister(email, password, securityQuestion, securityAnswer)
         });
         var options = {
             method: 'POST',
-            body
+            body,
+            headers: {
+                'Content-Type': 'application/json'
+            }
         };
 
         fetch('/registration/register', options)
