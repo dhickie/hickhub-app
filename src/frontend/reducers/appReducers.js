@@ -1,6 +1,7 @@
 export const AppState = {
     LOGIN: 'LOGIN',
-    REGISTRATION: 'REGISTRATION'
+    REGISTRATION: 'REGISTRATION',
+    DASHBOARD: 'DASHBOARD'
 };
 
 const initialState = {
