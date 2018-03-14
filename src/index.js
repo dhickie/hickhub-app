@@ -158,7 +158,7 @@ function handleRegister(req, res) {
             error: ''
         },
         app: {
-            appState: AppState.REGISTRATION
+            appState: AppState.DASHBOARD
         }
     };
 

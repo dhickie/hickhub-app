@@ -24,6 +24,7 @@ const ValidationError = props => {
 };
 
 ValidationError.propTypes = {
+    disabled: PropTypes.bool,
     error: PropTypes.string
 };
 

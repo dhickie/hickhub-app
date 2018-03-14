@@ -9,27 +9,24 @@ const tabs = [
 
 const Header = props => {
     const logoStyle = {
-        maxWidth: '150px'
+        maxWidth: '134px'
     };
 
-    const displayInline = {
-        display: 'inline-block'
-    };
+    const rowStyle = {
+        display: 'flex',
+        alignItems: 'center'
+    }
 
     return (
-        <div>
-            <div style={displayInline}>
-                <Image src='/static/logo.jpg' style={logoStyle} fluid centered/>
-            </div>
-            <div style={displayInline}>
-                <Menu secondary pointing>
-                    {tabs.map(function(name, index){
-                        return (
-                            <Menu.Item key={index} name={name} active={props.activeTab === name} onClick={props.onClick} />
-                        );
-                    })}
-                </Menu>
-            </div>
+        <div style={rowStyle}>
+            <Image src='/static/logo.jpg' style={logoStyle}/>
+            <Menu secondary pointing>
+                {tabs.map(function(name, index){
+                    return (
+                        <Menu.Item key={index} name={name} active={props.activeTab === name} onClick={props.onClick} />
+                    );
+                })}
+            </Menu>
         </div>
     );
 }
